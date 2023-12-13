@@ -1,7 +1,10 @@
 package com.bhoumik.bhoumikdemo.model;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.*;
 
@@ -10,7 +13,6 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@ToString
 @Table(name = "employees")
 public class Employee {
 
@@ -27,33 +29,25 @@ public class Employee {
     @Column(name = "email_id")
     private String emailId;
 
+
     public void setfirstName(String Nikhil) {
-    }
-    public void setlastName(String lihkiN) {
-    }
-    public void setemailId(String emailId) {
+        this.firstName = "Nikhil";
     }
 
-    public Object getFirstName() {
-        return firstName;
+    public void setlastName(String Chennareddy) {
+        this.lastName = "Chennareddy";
     }
 
-    public Object getLastName() {
-        return lastName;
+    public void setemailId(String mail) {
+        this.emailId = "nikhil@gmail.com";
     }
 
-    public Object getEmailId() {
-        return emailId;
+    public void setFirstName(String firstName) {
     }
 
-    public void setfirstName(Object firstName) {
+    public void setLastName(String lastName) {
     }
 
-    public void setlastName(Object lastName) {
+    public void setEmailId(String emailId) {
     }
-
-    public void setemailId(Object emailId) {
-    }
-
-
 }

@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@Setter
-@ToString
+
 @SpringBootApplication
 public class BhoumikdemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BhoumikdemoApplication.class, args);
+		SpringApplication.run(BhoumikdemoApplication.class,args);
 	}
 
 	@Autowired
@@ -24,7 +23,7 @@ public class BhoumikdemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Employee employee = new Employee();
 		employee.setfirstName("Nikhil");
-		employee.setlastName("lihkiN");
+		employee.setlastName("Chennareddy");
 		employee.setemailId("nikhil@gmail.com");
 		employeeRepository.save(employee);
 

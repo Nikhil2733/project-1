@@ -3,27 +3,20 @@ package com.bhoumik.bhoumikdemo.controller;
 import com.bhoumik.bhoumikdemo.exception.ResourceNotFoundException;
 import com.bhoumik.bhoumikdemo.model.Employee;
 import com.bhoumik.bhoumikdemo.repository.EmployeeRepository;
-import lombok.*;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@Setter
-@Getter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
+
     @Autowired
     private EmployeeRepository employeeRepository;
-
 
     @GetMapping
     public List<Employee> getAllEmployees(){
@@ -46,13 +39,13 @@ public class EmployeeController {
 
     // build update employee REST API
     @PutMapping("{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody @NotNull Employee employeeDetails) {
+    public ResponseEntity<Employee> updateEmployee(@PathVariable long id,@RequestBody Employee employeeDetails) {
         Employee updateEmployee = employeeRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id: " + id));
 
-        updateEmployee.setfirstName(employeeDetails.getFirstName());
-        updateEmployee.setlastName(employeeDetails.getLastName());
-        updateEmployee.setemailId(employeeDetails.getEmailId());
+        updateEmployee.setFirstName(employeeDetails.getFirstName());
+        updateEmployee.setLastName(employeeDetails.getLastName());
+        updateEmployee.setEmailId(employeeDetails.getEmailId());
 
         employeeRepository.save(updateEmployee);
 
